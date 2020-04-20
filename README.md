@@ -15,7 +15,7 @@ Quick tip: Always use `help` to check the required units to avoid unit conversio
 
 ------------------------------------------------
 
-## Mechanical Design - dsg
+## Mechanical Design & Ancillary Equipment Sizing - dsg
 
 `help dsg` - retrieves help documentation on functions, inputs and arguments
 
@@ -59,7 +59,9 @@ Functions:
 
 - capex.eqptpurcost - calculates purchased equipment cost
 
-- capex.pressurefac - calculates pressure factor
+- capex.pressurefacves - calculates pressure factor for vessels
+
+- capex.pressurefacanc - calculates pressure factor for anciliary equipment
 
 - capex.baremodfac - calculates bare module factor
 
