@@ -17,7 +17,7 @@ classdef capex
         % To access, e.g. capex.USSG(2019)
         USSG = containers.Map([2001, 2018, 2019], [1.7912, 1.3912, 1.3493])
         
-        % Consumer price index
+        % Consumer price index for 20yy (annual)
         % To access, e.g. CPI('SG')(2019)
         CPI = containers.Map(['SG', 'US'], ...
             [containers.Map([2001, 2016, 2018, 2019], [86.05, 112.6, 113.8, 115.0]), ...
