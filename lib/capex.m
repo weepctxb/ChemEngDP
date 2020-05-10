@@ -8,20 +8,21 @@ classdef capex
 
     %% CONSTANT PROPERTIES
     properties (Constant)
-        CEPCI19 = 607.5; % CEPCI index for 2019 (annual)
-        CEPCI18 = 603.1; % CEPCI index for 2018 (annual)
-        CEPCI01 = 394.3; % CEPCI index for 2001 (annual)
         
-        USSG19 = 1.3493; % USD to SGD forex rate for 2019 (annual)
-        USSG18 = 1.3912; % USD to SGD forex rate for 2018 (annual)
-        USSG01 = 1.7912; % USD to SGD forex rate for 2001 (annual)
+        % CEPCI Index for 20yy (annual)
+        % To access, e.g. capex.CEPCI(2019)
+        CEPCI = containers.Map([2001, 2018, 2019], [394.3, 603.1, 607.5])
         
-        CPISG19 = 115.0; % SG consumer price index for 2019 (annual, SG benchmark 2010 = 100)
-        CPISG18 = 113.8; % SG consumer price index for 2018 (annual, SG benchmark 2010 = 100)
-        CPISG01 = 86.05; % SG consumer price index for 2001 (annual, SG benchmark 2010 = 100)
-        CPIUS19 = 257.0; % US consumer price index for 2019 (annual, US benchmark 1983 = 100)
-        CPIUS18 = 251.2; % US consumer price index for 2018 (annual, US benchmark 1983 = 100)
-        CPIUS01 = 176.7; % US consumer price index for 2001 (annual, US benchmark 1983 = 100)
+        % USD to SGD forex rate for 20yy (annualised average)
+        % To access, e.g. capex.USSG(2019)
+        USSG = containers.Map([2001, 2018, 2019], [1.7912, 1.3912, 1.3493])
+        
+        % Consumer price index
+        % To access, e.g. CPI('SG')(2019)
+        CPI = containers.Map(['SG', 'US'], ...
+            [containers.Map([2001, 2016, 2018, 2019], [86.05, 112.6, 113.8, 115.0]), ...
+            containers.Map([2001, 2016, 2018, 2019], [176.7, 240.0, 251.2, 257.0])])        
+        
     end
     
     %% METHODS
@@ -124,8 +125,8 @@ classdef capex
         
         function CGR = grasscost(CTM,Cpo)
             % GRASSCOST Calculate grassroots cost (CGR)
-            %   CGR = GRASSCOST(CTM,Cpo) calculates
-            %   total module cost at specified elevated pressure and MOC,
+            %   CGR = GRASSCOST(CTM,Cpo) calculates grasscosts cost
+            %   at specified elevated pressure and MOC,
             %   where:
             %   - CTM = total module cost ($)
             %   - Cpo = purchased equipment cost at ambient pressure and

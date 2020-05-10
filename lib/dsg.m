@@ -902,7 +902,7 @@ classdef dsg
                 else
                     W = ((1-P*R) / (1-P)) ^ (1/Ns);
                     S = sqrt(R^2+1) / (R-1);
-                    F = S*log(W) / log((1+W-S+S*W) / (1+W+S-S*W));
+                    F = S*log(W) / (log(1+W-S+S*W) / log(1+W+S-S*W));
                 end
             end
             
